@@ -1,0 +1,315 @@
+/* src/index.css */
+@import "tailwindcss";
+
+/* @tailwind base;
+@tailwind components; 
+@tailwind utilities; */
+
+@theme {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+
+  --color-smoky_black: hsl(var(--background));
+  --color-penn_red: hsl(var(--background1));
+  --color-rosewood: hsl(var(--background2));
+  --color-selective_yellow: hsl(var(--background3));
+  --color-high_orange: hsl(var(--background4));
+  --color-sinopia: hsl(var(--background5));
+  --color-princeton_orange: hsl(var(--background6));
+  --color-persimmon: hsl(var(--background7));
+  --color-chocolate_cosmos: hsl(var(--background8));
+  --color-engineering_orange: hsl(var(--background9));
+
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-card: hsl(var(--card));
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.7s ease-out forwards;
+  --animate-fade-in-delay1: fade-in 0.7s ease-out 0.2s forwards;
+  --animate-fade-in-delay2: fade-in 0.7s ease-out 0.4s forwards;
+  --animate-fade-in-delay3: fade-in 0.7s ease-out 0.6s forwards;
+  --animate-fade-in-delay4: fade-in 0.7s ease-out 0.8s forwards;
+  --animate-pulse-subtitle: pulse-subtitle 4s ease-in-out infinite;
+  --animate-blink: blink 1s infinite;
+  --animate-blob: blob 4s infinite ease-in-out;
+  --animate-blob-delay2: blob 3s infinite 2s ease-in-out;
+  --animate-blob-delay4: blob 2s infinite 4s ease-in-out;
+  --animate-blob-delay6: blob 2s infinite 6s ease-in-out;
+  --animate-gradient: gradient 4s ease infinite;
+  --animate-meteor: meteor 5s linear infinite;
+  --animate-fall: fall linear infinite;
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%,
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translatey(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translatey(0);
+  }
+}
+@keyframes pulse-subtitle {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+@keyframes meteor {
+  0% {
+    transform: translateY(0) rotate(215deg);
+    opacity: 1;
+  }
+  70% {
+    /* transform: translateY(100vh) rotate(215deg); */
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-500px) rotate(215deg);
+    opacity: 0;
+  }
+}
+@keyframes fall {
+  0% {
+    transform: translateY(-100%);
+    /* transform: translateX(-100%); */
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    /* scale: 1.2; */
+  }
+  100% {
+    transform: translateY(120vh);
+    /* transform: translateX(100%); */
+    opacity: 0;
+  }
+}
+/* dark_background: "#1A1110",
+        beaverLight: "#AB947E",
+        umber: "#6F5E53",
+        text_1: "#6F5E53",
+        beaverDark: "#8A7968",
+        roseEbony: "#593D3B",
+
+        smoky_black: {
+          DEFAULT: "#03071e",
+          100: "#010106",
+          200: "#01030b",
+          300: "#020411",
+          400: "#020516",
+          500: "#03071e",
+          600: "#0b1b73",
+          700: "#142fca",
+          800: "#5068ee",
+          900: "#a8b4f6",
+        },
+        chocolate_cosmos: {
+          DEFAULT: "#370617",
+          100: "#0b0105",
+          200: "#160209",
+          300: "#21040e",
+          400: "#2c0513",
+          500: "#370617",
+          600: "#880f39",
+          700: "#d9185b",
+          800: "#ed5d90",
+          900: "#f6aec7",
+        },
+        rosewood: {
+          DEFAULT: "#6a040f",
+          100: "#160103",
+          200: "#2b0206",
+          300: "#410209",
+          400: "#57030b",
+          500: "#6a040f",
+          600: "#b90719",
+          700: "#f7192f",
+          800: "#f96574",
+          900: "#fcb2ba",
+        },
+        penn_red: {
+          DEFAULT: "#9d0208",
+          100: "#1f0001",
+          200: "#3e0103",
+          300: "#5d0104",
+          400: "#7d0206",
+          500: "#9d0208",
+          600: "#e1030b",
+          700: "#fc2f36",
+          800: "#fd7479",
+          900: "#febabc",
+        },
+        engineering_orange: {
+          DEFAULT: "#d00000",
+          100: "#2a0000",
+          200: "#540000",
+          300: "#7d0000",
+          400: "#a70000",
+          500: "#d00000",
+          600: "#ff0e0e",
+          700: "#ff4a4a",
+          800: "#ff8787",
+          900: "#ffc3c3",
+        },
+        sinopia: {
+          DEFAULT: "#dc2f02",
+          100: "#2c0900",
+          200: "#591201",
+          300: "#851c01",
+          400: "#b22502",
+          500: "#dc2f02",
+          600: "#fd4a1d",
+          700: "#fd7755",
+          800: "#fea48e",
+          900: "#fed2c6",
+        },
+        persimmon: {
+          DEFAULT: "#e85d04",
+          100: "#2e1201",
+          200: "#5c2401",
+          300: "#8b3602",
+          400: "#b94903",
+          500: "#e85d04",
+          600: "#fc7826",
+          700: "#fd9a5c",
+          800: "#fdbb92",
+          900: "#feddc9",
+        },
+        princeton_orange: {
+          DEFAULT: "#f48c06",
+          100: "#311c01",
+          200: "#613802",
+          300: "#925404",
+          400: "#c37105",
+          500: "#f48c06",
+          600: "#faa434",
+          700: "#fbbb67",
+          800: "#fcd29a",
+          900: "#fee8cc",
+        },
+        high_orange: {
+          DEFAULT: "#faa307",
+          100: "#322101",
+          200: "#644202",
+          300: "#966303",
+          400: "#c88304",
+          500: "#faa307",
+          600: "#fbb637",
+          700: "#fcc969",
+          800: "#fddb9b",
+          900: "#feedcd",
+        },
+        selective_yellow: {
+          DEFAULT: "#ffba08",
+          100: "#352600",
+          200: "#6a4c00",
+          300: "#9f7200",
+          400: "#d49800",
+          500: "#ffba08",
+          600: "#ffc83b",
+          700: "#ffd56c",
+          800: "#ffe39d",
+          900: "#fff1ce",
+        }, */
+@layer base {
+  :root {
+    --border: 210 22% 95%;
+    --input: 210 22% 95%;
+    --background: 231, 82%, 6%;
+    --background1: 358, 97%, 31%;
+    --background2: 353.5, 92.7%, 21.6%;
+    --background3: 43, 100%, 52%;
+    --background4: 39, 96%, 50%;
+    --background5: 12.4, 98.2%, 43.5%;
+    --background6: 34, 95%, 49%;
+    --background7: 23, 97%, 46%;
+    --background8: 295, 80%, 12%;
+    --background9: 0, 100%, 41%;
+    --foreground: 210 22% 15%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 100% 98%;
+    --secondary: 210 100% 98%;
+    --card: 210 22% 95%;
+  }
+  /* 
+  .mid {
+    --border: 210 22% 95%;
+    --input: 210 22% 95%;
+    --background: 10 22% 95%;
+    --foreground: 210 22% 15%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 100% 98%;
+    --secondary: 210 100% 98%;
+    --card: 210 22% 95%;
+  }
+
+  .dark {
+    --border: 210 22% 15%;
+    --input: 210 22% 15%;
+    --background: 100 21% 65%;
+    --foreground: 210 22% 95%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 100% 98%;
+    --secondary: 210 100% 98%;
+    --card: 210 22% 15%;
+  } */
+}
+#root {
+  scroll-behavior: smooth;
+}
