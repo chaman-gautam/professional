@@ -15,7 +15,7 @@ const menuData = [
   },
   { label: "Professional Roles", href: "/ProfessionalRoles" },
   { label: "Case studies", href: "/casestudy" },
-  { label: "Contact", href: "/Contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {

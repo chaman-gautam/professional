@@ -5,18 +5,14 @@ import Pagenotfound from "./pages/Pagenotfound";
 import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-// import { Routes, Route } from "react-router-dom";
-// import Home from "./pages/Home";
-// import Aboutme from "./pages/Aboutme";
-// import Contact from "./pages/Contact";
 import CaseStudies from "./pages/Casestudy";
 import CaseStudyDetail from "./pages/Casestudydetail1";
-import { useState } from "react";
+
 import Leadership from "./components/Leadership";
 import Professionalroles from "./components/Services";
 import Singlepage from "./pages/Singlepage";
 import Resume from "./pages/Resume";
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       {/* navbar  */}
@@ -24,18 +20,11 @@ function App() {
         <Navbar />
       </div>
       <Routes>
-        <Route index element={<Home />} />
-        <Route
-          path="/"
-          element={
-            <Singlepage>
-              <Home />
-            </Singlepage>
-          }
-        />
+        {/* <Route index element={<Home />} /> */}
+        <Route path="/" element={<Home />} />
 
         {/* <Route path="/Aboutme" element={<Aboutme />} /> */}
-        <Route path="/Contact" element={<Contact />} />
+        <Route path="/contact" element={<Contact />} />
         <Route
           path="/aboutme"
           element={
@@ -89,4 +78,17 @@ function App() {
   );
 }
 
-export default App;
+// import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+// export default function App() {
+//   return (
+//     <BrowserRouter>
+//       <Routes>
+//         <Route
+//           path="/"
+//           element={<h1 className="text-blue-600">Hello inline</h1>}
+//         />
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }

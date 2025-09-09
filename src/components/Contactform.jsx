@@ -1,14 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 
-const res = await axios.post(
-  "https://yourdomain.infinityfreeapp.com/contact.php", // ✅ change to your live domain
-  formData,
-  {
-    headers: { "Content-Type": "application/json" },
-  }
-);
-
 export default function Contactform() {
   const [formData, setFormData] = useState({
     name: "",

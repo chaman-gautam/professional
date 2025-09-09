@@ -1,7 +1,7 @@
 import ContactCard from "./ContactCard";
 import Contactform from "./Contactform";
-import { useState } from "react";
-import axios from "axios";
+// import { useState } from "react";
+// import axios from "axios";
 export default function Contact() {
   const links = [
     { platform: "Instagram", username: "@yourhandle", link: "#" },
